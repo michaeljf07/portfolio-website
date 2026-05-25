@@ -9,31 +9,28 @@ export default function About() {
             <div className="w-full mb-12 space-y-2">
                 <h1 className="text-5xl font-bold">Michael Ferreira</h1>
                 <div className="flex gap-4">
-                    <button className="border border-gray-300 rounded-md px-4 py-1 shadow-xs hover:bg-gray-100 transition-colors duration-200 cursor-pointer">
-                        <Link href="/resume.pdf" className="flex items-center gap-2 text-sm">
-                            <FileIcon className="w-4 h-4" /> Resume
-                        </Link>
-                    </button>
-                    <button className="border border-gray-300 rounded-md px-4 py-1 shadow-xs hover:bg-gray-100 transition-colors duration-200 cursor-pointer">
-                        <Link
-                            href="https://linkedin.com/in/michael-j-ferreira"
-                            className="flex items-center gap-2 text-sm"
-                        >
-                            <LinkedInIcon className="w-4 h-4" /> LinkedIn
-                        </Link>
-                    </button>
-                    <button className="border border-gray-300 rounded-md px-4 py-1 shadow-xs hover:bg-gray-100 transition-colors duration-200 cursor-pointer">
-                        <Link
-                            href="https://github.com/michaeljf07"
-                            className="flex items-center gap-2 text-sm"
-                        >
-                            <GitHubIcon className="w-4 h-4" /> GitHub
-                        </Link>
-                    </button>
+                    <Link
+                        href="/resume.pdf"
+                        className="flex items-center gap-1 text-sm hover:underline"
+                    >
+                        <FileIcon className="w-4 h-4" /> Resume
+                    </Link>
+                    <Link
+                        href="https://linkedin.com/in/michael-j-ferreira"
+                        className="flex items-center gap-1 text-sm hover:underline"
+                    >
+                        <LinkedInIcon className="w-4 h-4" /> LinkedIn
+                    </Link>
+                    <Link
+                        href="https://github.com/michaeljf07"
+                        className="flex items-center gap-1 text-sm hover:underline"
+                    >
+                        <GitHubIcon className="w-4 h-4" /> GitHub
+                    </Link>
                 </div>
             </div>
             <div className="space-y-4">
-                <h1 className="text-3xl font-bold">Hello, I&apos;m Michael.</h1>
+                <h1 className="text-3xl font-bold">Hi, I&apos;m Michael.</h1>
                 <p>
                     I study computer science at the University of Waterloo alongside a business
                     degree at Wilfrid Laurier University. I&apos;m currenly working as a software

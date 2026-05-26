@@ -24,7 +24,7 @@ export default function ProjectsPanel() {
                 <div className="relative w-px bg-gray-300 shrink-0 self-stretch">
                     <motion.div
                         style={{ top: y }}
-                        className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-transparent border-2 border-gray-300 rounded-full shadow-sm z-30"
+                        className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-transparent border border-gray-300 rounded-full shadow-xs z-10"
                     />
                 </div>
 
@@ -66,7 +66,7 @@ export default function ProjectsPanel() {
                                         {project.description}
                                     </p>
                                     <div className="flex gap-1.5 flex-wrap mt-3">
-                                        {project.technologies.slice(0, 4).map((tech) => (
+                                        {project.technologies.map((tech) => (
                                             <span
                                                 key={tech}
                                                 className="text-xs px-2.5 py-0.5 rounded-md border border-gray-300"

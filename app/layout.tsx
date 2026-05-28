@@ -122,7 +122,7 @@ export default function RootLayout({
     return (
         <html lang="en" className={`${inter.variable} h-full antialiased`}>
             <body
-                className="min-h-full py-36"
+                className="min-h-full py-24 md:py-36"
                 style={{ fontFamily: "var(--font-inter), sans-serif" }}
             >
                 {children}

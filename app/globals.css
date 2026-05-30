@@ -1,16 +1,129 @@
 @import "tailwindcss";
 
 :root {
-    --background: #ffffff;
-    --charcoal-gray: #37352f;
+    --color-bg: #ffffff;
+    --color-bg-main: #e8eaf4;
+    --color-bg-dot: rgb(100 108 145 / 0.38);
+    --color-bg-card: rgb(255 255 255 / 0.65);
+    --color-bg-tag: #f0f2fa;
+    --color-bg-speech: #ebe8f6;
+    --color-bg-speech-border: #c4bed8;
+    --color-border-strong: #1a1a1a;
+    --color-border-subtle: #c4c0d8;
+    --color-border-muted: #d5d2e8;
+    --color-border-sidebar: #e0dff0;
+    --color-border-card: #c4c0d8;
+    --color-border-dashed: rgb(148 152 192 / 0.55);
+    --color-text: #1a1a1a;
+    --color-text-body: #2a3242;
+    --color-text-muted: #445060;
+    --color-text-secondary: #6a6d82;
+    --color-text-soft: #7a8198;
+    --color-text-dates: #7a8198;
+    --color-text-speech: #3d4558;
+    --color-link: #5c5fa8;
+    --color-link-accent: #4a4d90;
+    --color-hover-ink: #1a1a1a;
+    --color-accent-line: #9498c0;
+    --color-sparkle: #9ca0c0;
+    --color-icon-muted: #8b90b8;
+    --color-btn-primary-bg: #7b80e1;
+    --color-btn-primary-hover: #5e63c3;
+    --color-footer-muted: #9ca0b8;
+    --color-bg-section-card: color-mix(in srgb, var(--color-bg-main) 22%, white 78%);
+    --color-bg-section-card-hover: #ebe8f6;
 }
 
-@theme inline {
-    --background: var(--background);
-    --charcoal-gray: var(--charcoal-gray);
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
-    background-color: var(--background);
-    color: var(--charcoal-gray);
+    font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+/* Dotted background for content panel */
+.dot-bg {
+    background-color: var(--color-bg-main);
+    background-image: radial-gradient(circle, var(--color-bg-dot) 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+}
+
+/* Minimal sidebar note used across sidebar variants */
+.sidebar-note {
+    background: var(--color-bg-speech);
+    border: 1.5px solid var(--color-bg-speech-border);
+    border-radius: 14px;
+    padding: 10px 14px;
+    line-height: 1.45;
+}
+
+.sidebar-rail {
+    position: relative;
+    padding-left: 18px;
+}
+
+.sidebar-rail::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    bottom: 6px;
+    width: 1px;
+    background: var(--color-border-sidebar);
+}
+
+.sidebar-rail-link {
+    position: relative;
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 0.2rem 0;
+    font-size: 1.05rem;
+    transition: color 150ms ease;
+}
+
+.sidebar-rail-link::before {
+    content: "";
+    position: absolute;
+    left: -18px;
+    top: 50%;
+    width: 10px;
+    height: 1px;
+    background: transparent;
+    transform: translateY(-50%);
+    transition: background-color 150ms ease;
+}
+
+.sidebar-rail-link-active {
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+.sidebar-rail-link-active::before {
+    background: var(--color-text);
+}
+
+/* Scrollbar styling */
+.content-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.content-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.content-scroll::-webkit-scrollbar-thumb {
+    background: rgb(148 152 192 / 0.45);
+    border-radius: 3px;
+}
+
+.content-scroll::-webkit-scrollbar-thumb:hover {
+    background: rgb(148 152 192 / 0.72);
 }

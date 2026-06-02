@@ -6,7 +6,7 @@ export const experienceData = [
         companyLogo: "/company_logos/zeva.jpg",
         location: "Toronto, ON",
         dates: "May 2026 - Present",
-        summary: "Full-stack web development and data engineering for Zeva Global's SaaS platform",
+        summary: "Web development, helping build effective solutions for EV owners and operators.",
         technologies: ["Svelte", "TypeScript", "Python", "AWS", "UI/UX Design"],
     },
     {
@@ -16,11 +16,11 @@ export const experienceData = [
         companyLogo: "/company_logos/temerityanalytics.png",
         location: "Toronto, ON",
         dates: "May 2026 - Present",
-        summary: "Full-stack web development and data engineering",
+        summary: "Full-stack web development and data engineering building Merln 2.0",
         technologies: ["Python", "Django", "PostgreSQL", "Docker", "AWS", "Angular", "TypeScript"],
     },
     {
-        title: "Software Engineer",
+        title: "Founding Engineer",
         company: "Cache",
         companyUrl: "https://cacheinyourcloset.com",
         companyLogo: "/company_logos/cache.jpg",
@@ -55,7 +55,8 @@ export const experienceData = [
         companyLogo: "/company_logos/baobab.jpg",
         location: "Toronto, ON",
         dates: "Dec 2024 - Aug 2025",
-        summary: "Full-stack donation platform for charities in my communities",
+        summary:
+            "Founded a donation platform to connect charities directly with their communiy members.",
         technologies: ["MERN", "JWT", "MongoDB", "React"],
         description: [
             "Built and deployed a full-stack MERN donation platform serving 10 charitable organizations with 90+ active users, contributing 9K+ lines of production code that facilitated $1,000+ in donations",

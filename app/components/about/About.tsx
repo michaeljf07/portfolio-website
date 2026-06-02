@@ -6,36 +6,31 @@ import { education } from "./education-data";
 export default function About() {
     return (
         <section id="about" className="space-y-8">
-            <div className="w-full mb-12 space-y-2">
+            <div className="w-full mb-10 space-y-2">
                 <h1 className="text-5xl font-bold">Michael Ferreira</h1>
                 <div className="flex gap-4">
-                    <Link
-                        href="/resume.pdf"
-                        className="flex items-center gap-1 text-sm hover:underline"
-                    >
-                        <FileIcon className="w-4 h-4" /> Resume
-                    </Link>
-                    <Link
-                        href="https://linkedin.com/in/michael-j-ferreira"
-                        className="flex items-center gap-1 text-sm hover:underline"
-                    >
-                        <LinkedInIcon className="w-4 h-4" /> LinkedIn
-                    </Link>
-                    <Link
-                        href="https://github.com/michaeljf07"
-                        className="flex items-center gap-1 text-sm hover:underline"
-                    >
-                        <GitHubIcon className="w-4 h-4" /> GitHub
-                    </Link>
+                    <span className="flex items-center gap-1 text-sm">
+                        <FileIcon className="w-4 h-4" />
+                        <Link href="/resume.pdf">Resume</Link>
+                    </span>
+                    <span className="flex items-center gap-1 text-sm">
+                        <LinkedInIcon className="w-4 h-4" />
+                        <Link href="https://linkedin.com/in/michael-j-ferreira">LinkedIn</Link>
+                    </span>
+                    <span className="flex items-center gap-1 text-sm">
+                        <GitHubIcon className="w-4 h-4" />
+                        <Link href="https://github.com/michaeljf07">GitHub</Link>
+                    </span>
                 </div>
             </div>
             <div className="space-y-4">
-                <h1 className="text-3xl font-bold">Hi, I&apos;m Michael.</h1>
                 <p>
-                    I study computer science at the University of Waterloo alongside a business
-                    degree at Wilfrid Laurier University. I&apos;m currenly working as a software
-                    engineer at Cache, building web and iOS apps that connects influencers directly
-                    with their followers through fashion resale.
+                    I study computer science at the <b>University of Waterloo</b> alongside a
+                    business degree at <b>Wilfrid Laurier University</b>. I'm currenly working as a
+                    software engineer at ZEVA Global and Temerity Analytics building web apps across
+                    the full stack. I'm also the founding engineer at{" "}
+                    <Link href="https://cacheinyourcloset.com">Cache</Link>, a fashion resale
+                    marketplace connecting influencers directly with their followers.
                 </p>
                 <p>
                     When I'm not in the terminal, you'll probably find me at the gym, reading a

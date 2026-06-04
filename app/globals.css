@@ -127,3 +127,7 @@ body {
 .content-scroll::-webkit-scrollbar-thumb:hover {
     background: rgb(148 152 192 / 0.72);
 }
+
+a {
+    @apply text-mist-600 hover:underline;
+}

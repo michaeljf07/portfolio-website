@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 :root {
-    --background: #ffffff;
+    --light-background: #faf9f5;
     --charcoal-gray: #37352f;
 }
 
 @theme inline {
-    --background: var(--background);
+    --light-background: var(--light-background);
     --charcoal-gray: var(--charcoal-gray);
 }
 
 body {
-    background-color: var(--background);
+    background-color: var(--light-background);
     color: var(--charcoal-gray);
 }
 

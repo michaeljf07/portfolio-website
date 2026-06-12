@@ -1,37 +1,27 @@
 import About from "@/app/components/about/About";
 import Experience from "@/app/components/experience/Experience";
 import Projects from "@/app/components/projects/Projects";
-import Image from "next/image";
+import MobileSidebar from "@/app/components/mobile/MobileSidebar";
+import DesktopSidebar from "@/app/components/desktop/DesktopSidebar";
 
 export default function Home() {
     return (
-        <main className="w-full md:w-220 mx-auto space-y-16 px-8">
-            <About />
-            <Experience />
-            <Projects />
-            <Webring />
-        </main>
+        <div className="flex min-h-screen max-w-5xl mx-auto px-6 md:px-12 gap-16 py-16">
+            <Sidebar />
+            <main className="flex-1 min-w-0 space-y-20 md:pt-2">
+                <About />
+                <Experience />
+                <Projects />
+            </main>
+        </div>
     );
 }
 
-function Webring() {
+function Sidebar() {
     return (
-        <div className="flex items-center gap-2">
-            <a href="https://cs.uwatering.com/#michaelferreira.me?nav=prev" className="opacity-50">
-                ←
-            </a>
-            <a href="https://cs.uwatering.com/#michaelferreira.me" target="_blank">
-                <Image
-                    src="https://cs.uwatering.com/icon.black.svg"
-                    alt="CS Webring"
-                    width={20}
-                    height={20}
-                    className="opacity-50"
-                />
-            </a>
-            <a href="https://cs.uwatering.com/#michaelferreira.me?nav=next" className="opacity-50">
-                →
-            </a>
-        </div>
+        <>
+            <MobileSidebar />
+            <DesktopSidebar />
+        </>
     );
 }

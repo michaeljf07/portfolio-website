@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
-import { Inter } from "next/font/google";
-import { Source_Serif_4 } from "next/font/google";
+import { DM_Sans, Lora } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-    variable: "--font-inter",
+const dmSans = DM_Sans({
+    variable: "--font-dm-sans",
     subsets: ["latin"],
 });
 
-const sourceSerif = Source_Serif_4({
-    variable: "--font-source-serif-4",
+const lora = Lora({
+    variable: "--font-lora",
     subsets: ["latin"],
 });
 
@@ -29,10 +28,10 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" className={`${inter.variable} ${sourceSerif.variable} h-full antialiased`}>
+        <html lang="en" className={`${dmSans.variable} ${lora.variable} h-full antialiased`}>
             <body
-                className="min-h-full py-36"
-                style={{ fontFamily: "var(--font-inter), var(--font-source-serif-4), sans-serif" }}
+                className="min-h-full"
+                style={{ fontFamily: "var(--font-dm-sans), sans-serif" }}
             >
                 {children}
                 <Analytics />

@@ -31,6 +31,7 @@ export default function DesktopHeader() {
                     { label: "About", href: "#about" },
                     { label: "Experience", href: "#experience" },
                     { label: "Projects", href: "#projects" },
+                    { label: "Blog", href: "/blog" },
                 ].map(({ label, href }) => (
                     <Link
                         key={href}

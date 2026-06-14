@@ -6,7 +6,7 @@ import DesktopSidebar from "@/app/components/desktop/DesktopSidebar";
 
 export default function Home() {
     return (
-        <div className="flex min-h-screen max-w-5xl mx-auto px-6 md:px-12 gap-16 py-16">
+        <div className="flex">
             <Sidebar />
             <main className="flex-1 min-w-0 space-y-20 md:pt-2">
                 <About />

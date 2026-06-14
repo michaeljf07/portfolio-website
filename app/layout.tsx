@@ -30,7 +30,7 @@ export default function RootLayout({
     return (
         <html lang="en" className={`${dmSans.variable} ${lora.variable} h-full antialiased`}>
             <body
-                className="min-h-full"
+                className="min-h-full max-w-5xl mx-auto px-6 md:px-12 gap-16 py-16"
                 style={{ fontFamily: "var(--font-dm-sans), sans-serif" }}
             >
                 {children}

@@ -77,35 +77,45 @@ h1 {
     .blog-content li::marker {
         color: var(--text-muted);
     }
-}
 
-.blog-content h2 {
-    font-family: var(--font-lora), serif;
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-top: 2rem;
-    color: var(--text);
-}
+    .blog-content blockquote {
+        margin: 1.5rem 0;
+        padding: 1rem 1.5rem;
+        background-color: var(--tag-bg);
+        border-left: 2px solid var(--text-muted);
+        color: var(--text);
+        font-style: italic;
+        border-radius: 0 4px 4px 0;
+    }
 
-.blog-content h3 {
-    font-family: var(--font-lora), serif;
-    font-size: 1.125rem;
-    font-weight: 600;
-    margin-top: 1.5rem;
-    color: var(--text);
-}
+    .blog-content h2 {
+        font-family: var(--font-lora), serif;
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-top: 2rem;
+        color: var(--text);
+    }
 
-.blog-content a {
-    color: var(--accent);
-}
+    .blog-content h3 {
+        font-family: var(--font-lora), serif;
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin-top: 1.5rem;
+        color: var(--text);
+    }
 
-.blog-content hr {
-    border: none;
-    border-top: 1px solid var(--border);
-    margin: 2rem 0;
-}
+    .blog-content a {
+        color: var(--accent);
+    }
 
-.blog-content strong {
-    font-weight: 600;
-    color: var(--text);
+    .blog-content hr {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 2rem 0;
+    }
+
+    .blog-content strong {
+        font-weight: 600;
+        color: var(--text);
+    }
 }

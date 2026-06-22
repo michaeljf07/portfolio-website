@@ -2,17 +2,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { connection } from "next/server";
 import { SectionHeading } from "@/app/components/SectionHeading";
-import { getBlogPostBySlug, getBlogSlugs } from "@/app/lib/blog";
+import { getBlogPostBySlug } from "@/app/lib/blog";
 import ReactMarkdown from "react-markdown";
 
 type Props = {
     params: Promise<{ slug: string }>;
 };
-
-export async function generateStaticParams() {
-    const slugs = await getBlogSlugs();
-    return slugs.map((slug) => ({ slug }));
-}
 
 function formatDate(date: string) {
     return new Date(`${date}T00:00:00`).toLocaleDateString("en-US", {

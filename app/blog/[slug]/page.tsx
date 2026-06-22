@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { connection } from "next/server";
 import { SectionHeading } from "@/app/components/SectionHeading";
 import { getBlogPostBySlug, getBlogSlugs } from "@/app/lib/blog";
 import ReactMarkdown from "react-markdown";
@@ -22,6 +23,8 @@ function formatDate(date: string) {
 }
 
 export default async function BlogPost({ params }: Props) {
+    await connection();
+
     const { slug } = await params;
     const post = await getBlogPostBySlug(slug);
 

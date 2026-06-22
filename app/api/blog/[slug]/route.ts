@@ -1,11 +1,13 @@
 import { getBlogPostBySlug } from "@/app/lib/blog";
-import { NextResponse } from "next/server";
+import { connection, NextResponse } from "next/server";
 
 type Props = {
     params: Promise<{ slug: string }>;
 };
 
 export async function GET(request: Request, { params }: Props) {
+    await connection();
+
     const { slug } = await params;
     const post = await getBlogPostBySlug(slug);
 

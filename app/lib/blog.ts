@@ -1,4 +1,4 @@
-import { supabase } from "@/app/lib/db/supabase";
+import { getSupabase, hasSupabaseConfig } from "@/app/lib/db/supabase";
 
 export type BlogPostSummary = {
     id: string;
@@ -13,6 +13,8 @@ export type BlogPost = BlogPostSummary & {
 };
 
 export async function getBlogPosts(): Promise<BlogPostSummary[]> {
+    const supabase = getSupabase();
+
     const { data, error } = await supabase
         .from("blog")
         .select("id, title, slug, excerpt, created_at")
@@ -26,6 +28,8 @@ export async function getBlogPosts(): Promise<BlogPostSummary[]> {
 }
 
 export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
+    const supabase = getSupabase();
+
     const { data, error } = await supabase.from("blog").select("*").eq("slug", slug).single();
 
     if (error) {
@@ -36,6 +40,12 @@ export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> 
 }
 
 export async function getBlogSlugs(): Promise<string[]> {
+    if (!hasSupabaseConfig()) {
+        return [];
+    }
+
+    const supabase = getSupabase();
+
     const { data, error } = await supabase.from("blog").select("slug");
 
     if (error) {

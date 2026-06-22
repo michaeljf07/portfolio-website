@@ -1,7 +1,9 @@
 import { getBlogPosts } from "@/app/lib/blog";
-import { NextResponse } from "next/server";
+import { connection, NextResponse } from "next/server";
 
 export async function GET() {
+    await connection();
+
     try {
         const data = await getBlogPosts();
         return NextResponse.json(data);

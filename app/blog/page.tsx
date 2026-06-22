@@ -2,9 +2,12 @@ import { SectionHeading } from "../components/SectionHeading";
 import BlogCard from "@/app/components/blog/BlogCard";
 import { getBlogPosts } from "@/app/lib/blog";
 import Link from "next/link";
+import { connection } from "next/server";
 import { Suspense } from "react";
 
 export default async function Blog() {
+    await connection();
+
     const posts = await getBlogPosts();
 
     return (

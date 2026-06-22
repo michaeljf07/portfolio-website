@@ -1,11 +1,52 @@
 import { SectionHeading } from "../components/SectionHeading";
-import { getAllPosts } from "@/app/lib/markdown";
 import BlogCard from "@/app/components/blog/BlogCard";
 import Link from "next/link";
+import { Suspense } from "react";
 
-export default function Blog() {
+type Post = {
+    id: string;
+    title: string;
+    slug: string;
+    excerpt: string;
+    created_at: string;
+};
+
+export default async function Blog() {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/blog`);
+    if (!response.ok) {
+        throw new Error("Failed to fetch posts");
+    }
+    const posts = (await response.json()) as Post[];
+
     return (
-        <section id="blog">
+        <Suspense fallback={<BlogCardSkeleton />}>
+            <section id="blog">
+                <Link
+                    href="/"
+                    className="text-sm text-text-muted hover:text-text no-underline hover:no-underline mb-6 inline-block"
+                >
+                    ← Back to home
+                </Link>
+                <SectionHeading>Blog</SectionHeading>
+                <div>
+                    {posts.map((post) => (
+                        <BlogCard
+                            key={post.slug}
+                            title={post.title}
+                            excerpt={post.excerpt}
+                            slug={post.slug}
+                            date={post.created_at}
+                        />
+                    ))}
+                </div>
+            </section>
+        </Suspense>
+    );
+}
+
+export function BlogCardSkeleton() {
+    return (
+        <>
             <Link
                 href="/"
                 className="text-sm text-text-muted hover:text-text no-underline hover:no-underline mb-6 inline-block"
@@ -13,17 +54,21 @@ export default function Blog() {
                 ← Back to home
             </Link>
             <SectionHeading>Blog</SectionHeading>
-            <div>
-                {getAllPosts().map((post) => (
-                    <BlogCard
-                        key={post.slug}
-                        title={post.title}
-                        excerpt={post.excerpt}
-                        slug={post.slug}
-                        date={post.date}
-                    />
-                ))}
+            <div className="p-4 rounded-lg border border-transparent">
+                <div className="animate-pulse">
+                    {/* Title Skeleton - matches text-lg height */}
+                    <div className="h-6 bg-tag-bg rounded-md w-3/4 mb-2" />
+
+                    {/* Excerpt Skeleton - matches text-sm (approx 2 lines) */}
+                    <div className="space-y-2 mb-2">
+                        <div className="h-4 bg-tag-bg rounded-md w-full" />
+                        <div className="h-4 bg-tag-bg rounded-md w-5/6" />
+                    </div>
+
+                    {/* Date Skeleton - matches text-sm */}
+                    <div className="h-3 bg-tag-bg rounded-md w-1/4" />
+                </div>
             </div>
-        </section>
+        </>
     );
 }

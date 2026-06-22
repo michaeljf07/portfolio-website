@@ -1,20 +1,17 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SectionHeading } from "@/app/components/SectionHeading";
+import { getBlogPostBySlug, getBlogSlugs } from "@/app/lib/blog";
 import ReactMarkdown from "react-markdown";
 
 type Props = {
     params: Promise<{ slug: string }>;
 };
 
-type BlogPost = {
-    id: string;
-    title: string;
-    slug: string;
-    excerpt: string;
-    created_at: string;
-    content_markdown: string;
-};
+export async function generateStaticParams() {
+    const slugs = await getBlogSlugs();
+    return slugs.map((slug) => ({ slug }));
+}
 
 function formatDate(date: string) {
     return new Date(`${date}T00:00:00`).toLocaleDateString("en-US", {
@@ -26,12 +23,7 @@ function formatDate(date: string) {
 
 export default async function BlogPost({ params }: Props) {
     const { slug } = await params;
-
-    const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/blog/${slug}`);
-    if (!response.ok) {
-        throw new Error("Failed to fetch post");
-    }
-    const post = (await response.json()) as BlogPost;
+    const post = await getBlogPostBySlug(slug);
 
     if (!post) {
         notFound();

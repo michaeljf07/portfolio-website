@@ -1,5 +1,5 @@
+import { getBlogPostBySlug } from "@/app/lib/blog";
 import { NextResponse } from "next/server";
-import { supabase } from "@/app/lib/db/supabase";
 
 type Props = {
     params: Promise<{ slug: string }>;
@@ -7,12 +7,11 @@ type Props = {
 
 export async function GET(request: Request, { params }: Props) {
     const { slug } = await params;
+    const post = await getBlogPostBySlug(slug);
 
-    const { data, error } = await supabase.from("blog").select("*").eq("slug", slug).single();
-
-    if (error) {
-        return NextResponse.json({ error: error.message }, { status: 500 });
+    if (!post) {
+        return NextResponse.json({ error: "Not found" }, { status: 404 });
     }
 
-    return NextResponse.json(data);
+    return NextResponse.json(post);
 }

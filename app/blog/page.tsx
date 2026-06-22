@@ -1,22 +1,11 @@
 import { SectionHeading } from "../components/SectionHeading";
 import BlogCard from "@/app/components/blog/BlogCard";
+import { getBlogPosts } from "@/app/lib/blog";
 import Link from "next/link";
 import { Suspense } from "react";
 
-type Post = {
-    id: string;
-    title: string;
-    slug: string;
-    excerpt: string;
-    created_at: string;
-};
-
 export default async function Blog() {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/blog`);
-    if (!response.ok) {
-        throw new Error("Failed to fetch posts");
-    }
-    const posts = (await response.json()) as Post[];
+    const posts = await getBlogPosts();
 
     return (
         <Suspense fallback={<BlogCardSkeleton />}>

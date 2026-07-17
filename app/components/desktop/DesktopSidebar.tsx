@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function DesktopHeader() {
     return (
-        <aside className="hidden md:flex flex-col w-52 shrink-0 sticky top-16 self-start h-[calc(100vh-8rem)] gap-6">
+        <aside className="hidden md:flex flex-col w-52 shrink-0 sticky top-16 self-start h-[calc(100vh-8rem)] gap-6 mr-2">
             <div className="flex flex-col items-start gap-4">
                 <div className="w-32 h-32 rounded-full overflow-hidden border border-border">
                     <Image
@@ -32,12 +32,15 @@ export default function DesktopHeader() {
                     { label: "Experience", href: "#experience" },
                     { label: "Projects", href: "#projects" },
                     { label: "Blog", href: "/blog" },
+                    { label: "Resume", href: "/resume.pdf" },
                 ].map(({ label, href }) => (
                     <Link
                         key={href}
                         href={href}
                         scroll={true}
                         className="text-sm text-text-muted hover:text-text transition-colors px-0 py-1 no-underline hover:no-underline"
+                        prefetch={label === "Blog"}
+                        target={label === "Resume" ? "_blank" : undefined}
                     >
                         {label}
                     </Link>

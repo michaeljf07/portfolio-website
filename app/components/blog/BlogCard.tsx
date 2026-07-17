@@ -17,7 +17,11 @@ function formatDate(date: string) {
 
 export default function BlogCard({ title, excerpt, slug, date }: BlogCardProps) {
     return (
-        <Link href={`/blog/${slug}`} className="block no-underline! hover:no-underline!">
+        <Link
+            href={`/blog/${slug}`}
+            className="block no-underline! hover:no-underline!"
+            prefetch={true}
+        >
             <article className="hover:bg-tag-bg transition-colors p-4 rounded-lg">
                 <h3
                     className="text-lg font-bold text-text! mb-2"

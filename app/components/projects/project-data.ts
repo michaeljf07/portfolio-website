@@ -1,4 +1,22 @@
-export const projects = [
+type Project = {
+    title: string;
+    description: string;
+    githubUrl: string;
+    image: string;
+    demoUrl: string;
+    technologies: string[];
+};
+
+export const projects: Project[] = [
+    {
+        title: "Mimi",
+        description:
+            "A desktop app for translating English <-> Japanese audio and text for macOS built with SwiftUI and Swift.",
+        githubUrl: "https://github.com/michaeljf07/mimi",
+        image: "/project_images/mimi.png",
+        demoUrl: "/project_images/mimi.png",
+        technologies: ["SwiftUI", "Swift", "macOS", "Desktop App", "Translation", "Bash"],
+    },
     {
         title: "Logstreamer",
         description:

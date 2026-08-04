@@ -22,7 +22,7 @@ export default function BlogCard({ title, excerpt, slug, date }: BlogCardProps) 
             className="block no-underline! hover:no-underline!"
             prefetch={true}
         >
-            <article className="hover:bg-tag-bg transition-colors p-4 rounded-lg">
+            <article className="hover:bg-tag-bg transition-colors py-4 rounded-lg">
                 <h3
                     className="text-lg font-bold text-text! mb-2"
                     style={{ fontFamily: "var(--font-lora), serif" }}

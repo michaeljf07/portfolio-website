@@ -7,14 +7,21 @@ import { Suspense } from "react";
 
 export default function Blog() {
     return (
-        <section id="blog">
-            <Link
-                href="/"
-                className="text-sm text-text-muted hover:text-text no-underline hover:no-underline mb-6 inline-block"
-            >
-                ← Back to home
-            </Link>
-            <SectionHeading>Blog</SectionHeading>
+        <section id="blog" className="flex flex-col gap-12">
+            <header className="max-w-[750px] pt-6">
+                <p className="mb-2 text-sm font-semibold tracking-wide text-text-muted uppercase">
+                    Writing
+                </p>
+                <h1
+                    className="text-6xl font-bold leading-none tracking-tight"
+                    style={{ fontFamily: "var(--font-lora), serif" }}
+                >
+                    Blog
+                </h1>
+                <p className="mt-4 text-base leading-relaxed text-text-muted">
+                    A collection of my thoughts and experiences.
+                </p>
+            </header>
             <div>
                 <Suspense fallback={<BlogCardsSectionSkeleton />}>
                     <BlogCardsSection />

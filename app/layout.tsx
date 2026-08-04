@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import { DM_Sans, Lora } from "next/font/google";
+import FloatingDock from "@/app/components/navigation/FloatingDock";
+import SiteHeader from "@/app/components/navigation/SiteHeader";
 import "./globals.css";
 
-const dmSans = DM_Sans({
+const mono = DM_Sans({
     variable: "--font-dm-sans",
     subsets: ["latin"],
 });
@@ -28,12 +30,16 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" className={`${dmSans.variable} ${lora.variable} h-full antialiased`}>
+        <html lang="en" className={`${mono.variable} ${lora.variable} h-full antialiased`}>
             <body
-                className="min-h-full max-w-5xl mx-auto px-6 md:px-12 gap-16 py-16"
+                className="site-grid min-h-full bg-bg text-text"
                 style={{ fontFamily: "var(--font-dm-sans), sans-serif" }}
             >
-                {children}
+                <SiteHeader />
+                <main className="mx-auto w-[calc(100%-40px)] max-w-[750px] pt-10 pb-36 max-sm:w-[calc(100%-28px)] max-sm:pt-8">
+                    {children}
+                </main>
+                <FloatingDock />
                 <Analytics />
             </body>
         </html>

@@ -1,4 +1,4 @@
-type Project = {
+export type Project = {
     title: string;
     description: string;
     githubUrl: string;
@@ -18,13 +18,29 @@ export const projects: Project[] = [
         technologies: ["SwiftUI", "Swift", "macOS", "Desktop App", "Translation", "Bash"],
     },
     {
-        title: "Logstreamer",
+        title: "Forex Stock Predictor",
         description:
-            "A CLI tool for streaming logs from multiple terminals, docker containers, and other sources to a single terminal.",
-        githubUrl: "https://github.com/michaeljf07/logstreamer",
-        image: "/project_images/logstreamer.png",
-        demoUrl: "/project_images/logstreamer.png",
-        technologies: ["Go", "CLI", "Terminal", "Supabase", "Docker"],
+            "A machine learning pipeline for predicting forex price movements using technical indicators and market data. Achieved significant accuracy in forecasting currency trends.",
+        githubUrl: "https://github.com/michaeljf07/forex-predictor",
+        image: "/project_images/forex.png",
+        demoUrl: "/demos/forex_demo.mp4",
+        technologies: [
+            "Python",
+            "Pandas",
+            "Scikit-learn",
+            "Machine Learning",
+            "Forex",
+            "Data Analysis",
+        ],
+    },
+    {
+        title: "Atari Centipede Remake",
+        description:
+            "A replica of the classic Atari Centipede game developed using Python and Pygame as the final culminating project for my grade 12 computer science class.",
+        githubUrl: "https://github.com/michaeljf07/centipede",
+        image: "/project_images/centipede.png",
+        demoUrl: "/demos/centipede_demo.mp4",
+        technologies: ["Python", "Pygame", "Game Development"],
     },
     {
         title: "Mock API Server for TypeScript",
@@ -52,20 +68,13 @@ export const projects: Project[] = [
         ],
     },
     {
-        title: "Forex Stock Predictor",
+        title: "Logstreamer",
         description:
-            "A machine learning pipeline for predicting forex price movements using technical indicators and market data. Achieved significant accuracy in forecasting currency trends.",
-        githubUrl: "https://github.com/michaeljf07/forex-predictor",
-        image: "/project_images/forex.png",
-        demoUrl: "/demos/forex_demo.mp4",
-        technologies: [
-            "Python",
-            "Pandas",
-            "Scikit-learn",
-            "Machine Learning",
-            "Forex",
-            "Data Analysis",
-        ],
+            "A CLI tool for streaming logs from multiple terminals, docker containers, and other sources to a single terminal.",
+        githubUrl: "https://github.com/michaeljf07/logstreamer",
+        image: "/project_images/logstreamer.png",
+        demoUrl: "/project_images/logstreamer.png",
+        technologies: ["Go", "CLI", "Terminal", "Supabase", "Docker"],
     },
     {
         title: "Baobab",
@@ -75,15 +84,6 @@ export const projects: Project[] = [
         image: "/project_images/baobab.png",
         demoUrl: "/demos/baobab_demo.mp4",
         technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Full-Stack", "MongoDB", "Charity"],
-    },
-    {
-        title: "Atari Centipede Remake",
-        description:
-            "A replica of the classic Atari Centipede game developed using Python and Pygame as the final culminating project for my grade 12 computer science class.",
-        githubUrl: "https://github.com/michaeljf07/centipede",
-        image: "/project_images/centipede.png",
-        demoUrl: "/demos/centipede_demo.mp4",
-        technologies: ["Python", "Pygame", "Game Development"],
     },
     {
         title: "Stock Ticker Game",

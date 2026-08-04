@@ -2,9 +2,9 @@ import Image from "next/image";
 
 export default function Hero() {
     return (
-        <section id="about" className="grid grid-cols-[minmax(0,1fr)_auto] items-center pt-8">
+        <section id="about" className="grid grid-cols-[minmax(0,1fr)_auto] items-center pt-6">
             <div>
-                <p className="mb-2.5 text-sm font-semibold tracking-wide text-text-muted uppercase">
+                <p className="mb-2 text-sm font-semibold tracking-wide text-text-muted uppercase">
                     Software Engineer · Toronto, ON
                 </p>
                 <h1

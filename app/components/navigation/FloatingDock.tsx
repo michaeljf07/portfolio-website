@@ -22,7 +22,7 @@ export default function FloatingDock() {
 
     return (
         <nav
-            className="fixed bottom-[max(20px,env(safe-area-inset-bottom))] left-1/2 z-1000 flex max-w-[calc(100vw-20px)] -translate-x-1/2 items-center gap-1 rounded-[14px] border border-black/10 bg-white/85 p-1.5 shadow-[0_14px_38px_rgba(27,27,24,0.18)] backdrop-blur-2xl max-sm:gap-px max-sm:p-1"
+            className="fixed top-[max(20px,env(safe-area-inset-bottom))] left-1/2 z-1000 flex max-w-[calc(100vw-20px)] -translate-x-1/2 items-center gap-1 rounded-xl border border-black/10 bg-white/85 p-1.5 shadow-[0_14px_38px_rgba(27,27,24,0.18)] backdrop-blur-2xl max-sm:gap-px max-sm:p-1"
             aria-label="Quick links"
         >
             {navItems.map((item) => {

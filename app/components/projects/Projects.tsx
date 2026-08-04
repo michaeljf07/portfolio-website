@@ -53,7 +53,7 @@ export function ProjectCard({ project }: { project: Project }) {
                     alt={`${project.title} project preview`}
                     fill
                     sizes="(max-width: 720px) 100vw, 340px"
-                    className="object-cover object-top"
+                    className="object-cover object-top transition-transform duration-300 hover:scale-105"
                 />
             </a>
             <div className="p-4">

@@ -35,11 +35,10 @@ export default function RootLayout({
                 className="site-grid min-h-full bg-bg text-text"
                 style={{ fontFamily: "var(--font-dm-sans), sans-serif" }}
             >
-                <SiteHeader />
-                <main className="mx-auto w-[calc(100%-40px)] max-w-[750px] pt-10 pb-36 max-sm:w-[calc(100%-28px)] max-sm:pt-8">
+                <FloatingDock />
+                <main className="mx-auto w-[calc(100%-40px)] max-w-[750px] pt-24 pb-36 max-sm:w-[calc(100%-28px)] max-sm:pt-8">
                     {children}
                 </main>
-                <FloatingDock />
                 <Analytics />
             </body>
         </html>

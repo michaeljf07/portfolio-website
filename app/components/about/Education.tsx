@@ -24,7 +24,7 @@ export default function Education() {
                             </div>
                             <div className="min-w-0">
                                 <h3 className="font-bold">{item.school}</h3>
-                                <p className="mt-1 text-sm text-text-muted">{item.degree}</p>
+                                <p className=" text-sm text-text-muted">{item.degree}</p>
                             </div>
                         </div>
                     </article>

@@ -1,13 +1,13 @@
 export function SectionHeading({ children }: { children: React.ReactNode }) {
     return (
-        <div className="mb-6 flex items-center gap-4">
+        <div className="flex items-center gap-4 mb-6">
             <h2
-                className="shrink-0 text-3xl font-semibold tracking-tight"
+                className="text-2xl font-semibold shrink-0"
                 style={{ fontFamily: "var(--font-lora), serif" }}
             >
                 {children}
             </h2>
-            <div className="h-px w-full bg-border" />
+            <div className="h-px flex-1 bg-border" />
         </div>
     );
 }

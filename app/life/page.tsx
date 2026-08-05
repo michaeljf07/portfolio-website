@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import LifeGallery from "@/app/components/life/LifeGallery";
 import { lifeSections } from "@/app/components/life/life-data";
+import { SectionHeading } from "@/app/components/SectionHeading";
+import Back from "@/app/components/Back";
 
 export const metadata: Metadata = {
     title: "Life",
@@ -9,21 +11,12 @@ export const metadata: Metadata = {
 
 export default function LifePage() {
     return (
-        <div className="flex flex-col gap-18">
-            <header className="max-w-[750px] pt-6">
-                <p className="mb-2 text-sm font-semibold tracking-wide text-text-muted uppercase">
-                    Outside the terminal
-                </p>
-                <h1
-                    className="text-6xl font-bold leading-none tracking-tight"
-                    style={{ fontFamily: "var(--font-lora), serif" }}
-                >
-                    Life
-                </h1>
-                <p className="mt-4 text-base leading-relaxed text-text-muted">
-                    A growing collection of the things I make time for away from work.
-                </p>
-            </header>
+        <section id="life">
+            <Back />
+            <SectionHeading>Life</SectionHeading>
+            <p className="mt-4 mb-16 text-base leading-relaxed text-text-muted">
+                A growing collection of the things I make time for away from work.
+            </p>
             <div className="flex flex-col gap-17">
                 {lifeSections.map((section, index) => (
                     <section key={section.id} id={section.id} className="grid gap-6">
@@ -40,6 +33,6 @@ export default function LifePage() {
                     </section>
                 ))}
             </div>
-        </div>
+        </section>
     );
 }

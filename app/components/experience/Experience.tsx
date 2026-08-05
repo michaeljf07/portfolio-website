@@ -7,48 +7,60 @@ export default function Experience() {
     return (
         <section id="experience">
             <SectionHeading>Experience</SectionHeading>
-            <div className="divide-y divide-border">
-                {experienceData.map((experience) => (
-                    <article
-                        key={`${experience.company}-${experience.title}`}
-                        className="py-4 first:pt-0"
-                    >
-                        <div className="grid grid-cols-[48px_minmax(0,1fr)_auto] items-start gap-3 max-sm:grid-cols-[44px_minmax(0,1fr)]">
-                            <div className="size-12 overflow-hidden rounded-xl border border-border bg-white max-sm:size-11 my-auto">
-                                <Image
-                                    src={experience.companyLogo}
-                                    alt=""
-                                    width={48}
-                                    height={48}
-                                    className="size-full object-cover"
-                                />
-                            </div>
-                            <div className="min-w-0">
-                                <div className="flex items-center gap-1">
-                                    {experience.companyUrl ? (
-                                        <a
-                                            href={experience.companyUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-1 font-bold text-text no-underline hover:text-accent"
-                                        >
-                                            {experience.company}
-                                            <ExternalLinkIcon className="size-3 opacity-55" />
-                                        </a>
-                                    ) : (
-                                        <h3 className="font-bold">{experience.company}</h3>
-                                    )}
-                                </div>
-                                <p className="text-sm text-text-muted">{experience.title}</p>
-                                <p className="mt-2 text-sm leading-snug text-text-muted">
-                                    {experience.summary}
-                                </p>
-                            </div>
-                            <p className="pt-0.5 text-right text-xs whitespace-nowrap text-text-muted max-sm:col-start-2 max-sm:row-start-2 max-sm:text-left">
-                                {experience.dates}
-                            </p>
+            <div className="space-y-8">
+                {experienceData.map((exp, index) => (
+                    <div key={index} className="flex gap-4">
+                        <div className="shrink-0 w-9 h-9 rounded-lg border border-border overflow-hidden bg-white mt-0.5">
+                            <Image
+                                src={exp.companyLogo}
+                                alt={exp.company}
+                                width={36}
+                                height={36}
+                                className="object-cover w-full h-full"
+                            />
                         </div>
-                    </article>
+
+                        <div className="flex-1 min-w-0">
+                            <div className="font-semibold text-sm leading-snug">{exp.title}</div>
+
+                            <div className="flex flex-wrap items-center gap-x-1.5 mt-0.5 text-sm text-text-muted">
+                                {exp.companyUrl ? (
+                                    <a
+                                        href={exp.companyUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-0.5 font-medium text-text no-underline hover:underline"
+                                    >
+                                        {exp.company}
+                                        <ExternalLinkIcon className="w-3 h-3 opacity-60" />
+                                    </a>
+                                ) : (
+                                    <span className="font-medium text-text">{exp.company}</span>
+                                )}
+                                <span>·</span>
+                                <span>{exp.location.split(",")[0]}</span>
+                                <span>·</span>
+                                <span className="tabular-nums">{exp.dates}</span>
+                            </div>
+
+                            <p className="text-sm mt-1.5 leading-relaxed text-text-muted">
+                                {exp.summary}
+                            </p>
+
+                            {exp.technologies.length > 0 && (
+                                <div className="flex gap-1.5 flex-wrap mt-2">
+                                    {exp.technologies.slice(0, 5).map((tech) => (
+                                        <span
+                                            key={tech}
+                                            className="text-xs px-2 py-0.5 rounded-md bg-tag-bg border border-border"
+                                        >
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    </div>
                 ))}
             </div>
         </section>

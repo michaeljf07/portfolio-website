@@ -1,99 +1,65 @@
+"use client";
+
 import Link from "next/link";
-import Image from "next/image";
-import { projects, type Project } from "./project-data";
-import { GitHubIcon, ExternalLinkIcon, RightArrowIcon } from "@/app/icons/Icons";
+import { projects } from "./project-data";
+import { GitHubIcon, ExternalLinkIcon } from "@/app/icons/Icons";
 import { SectionHeading } from "@/app/components/SectionHeading";
 
-type ProjectsProps = {
-    limit?: number;
-    showAllLink?: boolean;
-    sectionHeading?: boolean;
-};
-
-export default function Projects({
-    limit,
-    showAllLink = false,
-    sectionHeading = true,
-}: ProjectsProps) {
-    const visibleProjects = typeof limit === "number" ? projects.slice(0, limit) : projects;
-
+export default function ProjectsPanel() {
     return (
         <section id="projects">
-            {sectionHeading && <SectionHeading>Projects</SectionHeading>}
-            <div className="grid grid-cols-2 gap-4 max-sm:grid-cols-1">
-                {visibleProjects.map((project) => (
-                    <ProjectCard key={project.title} project={project} />
-                ))}
+            <SectionHeading>Projects</SectionHeading>
+            <div className="max-h-[600px] overflow-y-auto scrollbar-thin scrollbar-thumb-zinc-200 scrollbar-track-transparent">
+                <div className="space-y-6 mr-2">
+                    {projects.map((project, i) => {
+                        const demoUrl = "demoUrl" in project ? project.demoUrl : null;
+                        return (
+                            <div key={i}>
+                                <div className="flex justify-between mb-0.5">
+                                    <div className="flex items-center gap-1.5">
+                                        <h3 className="font-semibold text-sm text-text">
+                                            {project.title}
+                                        </h3>
+                                        {demoUrl && (
+                                            <Link
+                                                href={demoUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-text-muted hover:text-accent transition-colors no-underline"
+                                            >
+                                                <ExternalLinkIcon className="w-4 h-4" />
+                                            </Link>
+                                        )}
+                                    </div>
+                                    {project.githubUrl && (
+                                        <a
+                                            href={project.githubUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-text-muted hover:text-accent transition-colors no-underline"
+                                        >
+                                            <GitHubIcon className="w-4 h-4" />
+                                        </a>
+                                    )}
+                                </div>
+                                <p className="text-sm text-text-muted leading-relaxed line-clamp-2">
+                                    {project.description}
+                                </p>
+                                <div className="flex gap-1.5 flex-wrap mt-2">
+                                    {project.technologies.map((tech) => (
+                                        <span
+                                            key={tech}
+                                            className="text-xs px-2 py-0.5 rounded-md bg-tag-bg border border-border"
+                                        >
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
             </div>
-            {showAllLink && (
-                <Link
-                    href="/projects"
-                    className="mt-5.5 inline-flex items-center gap-2 text-sm font-semibold text-text no-underline hover:text-accent"
-                >
-                    View all projects
-                    <RightArrowIcon className="size-4" />
-                </Link>
-            )}
         </section>
-    );
-}
-
-export function ProjectCard({ project }: { project: Project }) {
-    return (
-        <article className="overflow-hidden rounded-xl border border-border bg-white/75">
-            <a
-                href={project.demoUrl || project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative block aspect-video overflow-hidden border-b border-border bg-tag-bg"
-                aria-label={`Open ${project.title} demo`}
-            >
-                <Image
-                    src={project.image}
-                    alt={`${project.title} project preview`}
-                    fill
-                    sizes="(max-width: 720px) 100vw, 340px"
-                    className="object-cover object-top transition-transform duration-300 hover:scale-105"
-                />
-            </a>
-            <div className="p-4">
-                <div className="flex items-center justify-between gap-3">
-                    <h3 className="text-lg font-semibold">{project.title}</h3>
-                    <div className="flex shrink-0 gap-2.5">
-                        {project.demoUrl && (
-                            <a
-                                href={project.demoUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label={`${project.title} demo`}
-                            >
-                                <ExternalLinkIcon className="size-4 text-text-muted" />
-                            </a>
-                        )}
-                        <a
-                            href={project.githubUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label={`${project.title} on GitHub`}
-                        >
-                            <GitHubIcon className="size-4 text-text-muted" />
-                        </a>
-                    </div>
-                </div>
-                <p className="mt-2 line-clamp-3 text-sm leading-snug text-text-muted">
-                    {project.description}
-                </p>
-                <div className="mt-3 flex flex-wrap gap-1">
-                    {project.technologies.slice(0, 5).map((technology) => (
-                        <span
-                            key={technology}
-                            className="rounded-md border border-border bg-tag-bg px-2 py-0.5 text-[0.68rem] text-text-muted"
-                        >
-                            {technology}
-                        </span>
-                    ))}
-                </div>
-            </div>
-        </article>
     );
 }

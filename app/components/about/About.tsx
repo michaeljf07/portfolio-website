@@ -38,7 +38,7 @@ export default function About() {
                             />
                         </div>
                         <div>
-                            <div className="text-xs font-semibold leading-tight">{edu.degree}</div>
+                            <div className="text-sm font-semibold leading-tight">{edu.degree}</div>
                             <div className="text-xs text-text-muted">{edu.school}</div>
                         </div>
                     </div>

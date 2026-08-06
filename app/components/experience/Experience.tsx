@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ExternalLinkIcon } from "@/app/icons/Icons";
 import { SectionHeading } from "@/app/components/SectionHeading";
 import { experienceData } from "./experience-data";
+import Link from "next/link";
 
 export default function Experience() {
     return (
@@ -10,7 +11,7 @@ export default function Experience() {
             <div className="space-y-8">
                 {experienceData.map((exp, index) => (
                     <div key={index} className="flex gap-4">
-                        <div className="shrink-0 w-9 h-9 rounded-lg border border-border overflow-hidden bg-white mt-0.5">
+                        <div className="shrink-0 w-11 h-11 rounded-lg border border-border overflow-hidden bg-white mt-0.5">
                             <Image
                                 src={exp.companyLogo}
                                 alt={exp.company}
@@ -25,7 +26,7 @@ export default function Experience() {
 
                             <div className="flex flex-wrap items-center gap-x-1.5 mt-0.5 text-sm text-text-muted">
                                 {exp.companyUrl ? (
-                                    <a
+                                    <Link
                                         href={exp.companyUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -33,7 +34,7 @@ export default function Experience() {
                                     >
                                         {exp.company}
                                         <ExternalLinkIcon className="w-3 h-3 opacity-60" />
-                                    </a>
+                                    </Link>
                                 ) : (
                                     <span className="font-medium text-text">{exp.company}</span>
                                 )}

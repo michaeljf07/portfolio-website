@@ -9,7 +9,15 @@ type Project = {
 
 export const projects: Project[] = [
     {
-        title: "Mimi",
+        title: "Vimy",
+        description: "A global macOS vim emulator for all text fields.",
+        githubUrl: "https://github.com/michaeljf07/vimy",
+        image: "/project_images/vimy.png",
+        demoUrl: "/demos/vimy_demo.mp4",
+        technologies: ["C", "CMake", "macOS", "Vim", "Emulator"],
+    },
+    {
+        title: "Japanese <-> English AI Translator for macOS",
         description:
             "A desktop app for translating English <-> Japanese audio and text for macOS built with SwiftUI and Swift.",
         githubUrl: "https://github.com/michaeljf07/mimi",

@@ -5,15 +5,20 @@ import { experienceData } from "./experience-data";
 import Link from "next/link";
 
 export default function Experience() {
+    const sortedExperienceData = experienceData.sort((a, b) => {
+        const endDateA = a.end_date ? new Date(a.end_date) : new Date();
+        const endDateB = b.end_date ? new Date(b.end_date) : new Date();
+        return endDateB.getTime() - endDateA.getTime();
+    });
     return (
         <section id="experience">
             <SectionHeading>Experience</SectionHeading>
             <div className="space-y-8">
-                {experienceData.map((exp, index) => (
+                {sortedExperienceData.map((exp, index) => (
                     <div key={index} className="flex gap-4">
                         <div className="shrink-0 w-11 h-11 rounded-lg border border-border overflow-hidden bg-white mt-0.5">
                             <Image
-                                src={exp.companyLogo}
+                                src={exp.company_logo}
                                 alt={exp.company}
                                 width={36}
                                 height={36}
@@ -25,9 +30,9 @@ export default function Experience() {
                             <div className="font-semibold text-sm leading-snug">{exp.title}</div>
 
                             <div className="flex flex-wrap items-center gap-x-1.5 mt-0.5 text-sm text-text-muted">
-                                {exp.companyUrl ? (
+                                {exp.company_url ? (
                                     <Link
-                                        href={exp.companyUrl}
+                                        href={exp.company_url}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="inline-flex items-center gap-0.5 font-medium text-text no-underline hover:underline"
@@ -41,7 +46,9 @@ export default function Experience() {
                                 <span>·</span>
                                 <span>{exp.location.split(",")[0]}</span>
                                 <span>·</span>
-                                <span className="tabular-nums">{exp.dates}</span>
+                                <span className="tabular-nums">
+                                    {exp.start_date} - {exp.end_date ? exp.end_date : "Present"}
+                                </span>
                             </div>
 
                             <p className="text-sm mt-1.5 leading-relaxed text-text-muted">

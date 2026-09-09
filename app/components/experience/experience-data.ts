@@ -1,4 +1,17 @@
-export const experienceData = [
+type Experience = {
+    title: string;
+    company: string;
+    company_url?: string;
+    company_logo: string;
+    location: string;
+    start_date: string;
+    end_date: string | null;
+    summary: string;
+    technologies: string[];
+    description?: string[];
+};
+
+export const experienceData: Experience[] = [
     {
         title: "Full Stack Developer",
         company: "ZEVA Global",
@@ -68,5 +81,15 @@ export const experienceData = [
             "Implemented JWT-based authentication with bcrypt password hashing and RBAC protecting 50+ API endpoints while maintaining sub-100ms average response time",
             "Optimized MongoDB schema with compound indexes on 3 core collections achieving 40% faster query performance and supporting 10x data volume scalability through denormalization strategies",
         ],
+    },
+    {
+        title: "CTO",
+        company: "Combinics",
+        company_logo: "/company_logos/combinics.jpg",
+        location: "Remote",
+        start_date: "Sept 2026",
+        end_date: null,
+        summary: "Building the non-profit to find your students' true interests.",
+        technologies: ["Next.js", "TypeScript", "PostgreSQL", "Fastify", "AWS", "UI/UX"],
     },
 ];

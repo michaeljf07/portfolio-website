@@ -82,14 +82,4 @@ export const experienceData: Experience[] = [
             "Optimized MongoDB schema with compound indexes on 3 core collections achieving 40% faster query performance and supporting 10x data volume scalability through denormalization strategies",
         ],
     },
-    {
-        title: "CTO",
-        company: "Combinics",
-        company_logo: "/company_logos/combinics.jpg",
-        location: "Remote",
-        start_date: "Sept 2026",
-        end_date: null,
-        summary: "Building the non-profit to find your students' true interests.",
-        technologies: ["Next.js", "TypeScript", "PostgreSQL", "Fastify", "AWS", "UI/UX"],
-    },
 ];

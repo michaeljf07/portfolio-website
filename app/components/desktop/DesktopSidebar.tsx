@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FileIcon, GitHubIcon, LinkedInIcon } from "@/app/icons/Icons";
 import Image from "next/image";
+import Webring from "@/app/components/Webring";
 
 export default function DesktopHeader() {
     return (
@@ -62,58 +63,8 @@ export default function DesktopHeader() {
                 <Link href="https://github.com/michaeljf07" target="_blank" aria-label="GitHub">
                     <GitHubIcon className="w-5 h-5 text-text-muted hover:text-accent transition-colors" />
                 </Link>
-                <Webring sidebar />
+                <Webring />
             </div>
         </aside>
-    );
-}
-
-function Webring({ sidebar = false }: { sidebar?: boolean }) {
-    if (sidebar) {
-        return (
-            <div className="flex items-center gap-1.5">
-                <a
-                    href="https://cs.uwatering.com/#michaelferreira.me?nav=prev"
-                    className="text-text-muted hover:text-text no-underline hover:no-underline text-xs"
-                >
-                    ←
-                </a>
-                <a href="https://cs.uwatering.com/#michaelferreira.me" target="_blank">
-                    <Image
-                        src="https://cs.uwatering.com/icon.black.svg"
-                        alt="CS Webring"
-                        width={16}
-                        height={16}
-                        className="opacity-40 hover:opacity-70 transition-opacity"
-                    />
-                </a>
-                <a
-                    href="https://cs.uwatering.com/#michaelferreira.me?nav=next"
-                    className="text-text-muted hover:text-text no-underline hover:no-underline text-xs"
-                >
-                    →
-                </a>
-            </div>
-        );
-    }
-
-    return (
-        <div className="md:hidden flex items-center gap-2 pt-4">
-            <a href="https://cs.uwatering.com/#michaelferreira.me?nav=prev" className="opacity-50">
-                ←
-            </a>
-            <a href="https://cs.uwatering.com/#michaelferreira.me" target="_blank">
-                <Image
-                    src="https://cs.uwatering.com/icon.black.svg"
-                    alt="CS Webring"
-                    width={20}
-                    height={20}
-                    className="opacity-50"
-                />
-            </a>
-            <a href="https://cs.uwatering.com/#michaelferreira.me?nav=next" className="opacity-50">
-                →
-            </a>
-        </div>
     );
 }

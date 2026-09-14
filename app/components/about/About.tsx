@@ -22,7 +22,7 @@ export default function About() {
                     interesting problems to fix and people to collaborate with.
                 </p>
             </div>
-            <div className="grid grid-cols-2 max-w-lg gap-2 pt-1">
+            <div className="grid grid-cols-1 md:grid-cols-2 max-w-lg gap-2 pt-1">
                 {education.map((edu, index) => (
                     <div
                         key={index}

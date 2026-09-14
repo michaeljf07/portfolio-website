@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import { DM_Sans, Lora } from "next/font/google";
-import MobileSidebar from "@/app/components/mobile/MobileSidebar";
+import MobileNav from "@/app/components/mobile/MobileNav";
 import "./globals.css";
+import MobileAbout from "@/app/components/mobile/MobileAbout";
 
 const dmSans = DM_Sans({
     variable: "--font-dm-sans",
@@ -34,7 +35,7 @@ export default function RootLayout({
                 className="min-h-full max-w-5xl mx-auto px-6 md:px-12 gap-16 pt-24 pb-16 md:py-16"
                 style={{ fontFamily: "var(--font-dm-sans), sans-serif" }}
             >
-                <MobileSidebar />
+                <MobileNav />
                 {children}
                 <Analytics />
             </body>

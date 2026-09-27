@@ -3,10 +3,7 @@ import Webring from "../Webring";
 import Link from "next/link";
 import { FileIcon, GitHubIcon, LinkedInIcon } from "@/app/icons/Icons";
 
-const pageLinks = [
-    { label: "Life", href: "/life" },
-    { label: "Blog", href: "/blog", prefetch: true },
-] as const;
+const pageLinks = [{ label: "Life", href: "/life" }] as const;
 
 export default function MobileAbout() {
     return (
@@ -24,11 +21,12 @@ export default function MobileAbout() {
                 <div>
                     <h1
                         className="text-xl font-semibold leading-tight"
-                        style={{ fontFamily: "var(--font-lora), serif" }}
-                    >
+                        style={{ fontFamily: "var(--font-lora), serif" }}>
                         Michael Ferreira
                     </h1>
-                    <p className="text-sm text-text-muted mt-0.5">Software Engineer</p>
+                    <p className="text-sm text-text-muted mt-0.5">
+                        Software Engineer
+                    </p>
                 </div>
 
                 <div className="flex gap-3">
@@ -37,8 +35,7 @@ export default function MobileAbout() {
                             key={href}
                             href={href}
                             className="text-sm text-text-muted hover:text-text no-underline hover:no-underline"
-                            {...link}
-                        >
+                            {...link}>
                             {label}
                         </Link>
                     ))}

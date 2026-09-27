@@ -19,11 +19,12 @@ export default function DesktopHeader() {
                 <div>
                     <h1
                         className="text-xl font-semibold leading-tight"
-                        style={{ fontFamily: "var(--font-lora), serif" }}
-                    >
+                        style={{ fontFamily: "var(--font-lora), serif" }}>
                         Michael Ferreira
                     </h1>
-                    <p className="text-sm text-text-muted mt-0.5">Software Engineer</p>
+                    <p className="text-sm text-text-muted mt-0.5">
+                        Software Engineer
+                    </p>
                 </div>
             </div>
 
@@ -33,7 +34,6 @@ export default function DesktopHeader() {
                     { label: "Experience", href: "#experience" },
                     { label: "Projects", href: "#projects" },
                     { label: "Life", href: "/life" },
-                    { label: "Blog", href: "/blog" },
                     { label: "Resume", href: "/resume.pdf" },
                 ].map(({ label, href }) => (
                     <Link
@@ -42,8 +42,7 @@ export default function DesktopHeader() {
                         scroll={true}
                         className="text-sm text-text-muted hover:text-text transition-colors px-0 py-1 no-underline hover:no-underline"
                         prefetch={label === "Blog"}
-                        target={label === "Resume" ? "_blank" : undefined}
-                    >
+                        target={label === "Resume" ? "_blank" : undefined}>
                         {label}
                     </Link>
                 ))}
@@ -56,11 +55,13 @@ export default function DesktopHeader() {
                 <Link
                     href="https://linkedin.com/in/michael-j-ferreira"
                     target="_blank"
-                    aria-label="LinkedIn"
-                >
+                    aria-label="LinkedIn">
                     <LinkedInIcon className="w-5 h-5 text-text-muted hover:text-accent transition-colors" />
                 </Link>
-                <Link href="https://github.com/michaeljf07" target="_blank" aria-label="GitHub">
+                <Link
+                    href="https://github.com/michaeljf07"
+                    target="_blank"
+                    aria-label="GitHub">
                     <GitHubIcon className="w-5 h-5 text-text-muted hover:text-accent transition-colors" />
                 </Link>
                 <Webring />

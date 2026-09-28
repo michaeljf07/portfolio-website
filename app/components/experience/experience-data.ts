@@ -13,14 +13,15 @@ type Experience = {
 
 export const experienceData: Experience[] = [
     {
-        title: "Full Stack Developer",
+        title: "Frontend Developer",
         company: "ZEVA Global",
         company_url: "https://zevaglobal.com/",
         company_logo: "/company_logos/zeva.jpg",
         location: "Toronto, ON",
         start_date: "May 2026",
         end_date: "Aug 2026",
-        summary: "Web development, helping build effective solutions for EV owners and operators.",
+        summary:
+            "Web development, helping build effective solutions for EV owners and operators.",
         technologies: ["Svelte", "TypeScript", "Python", "AWS", "UI/UX Design"],
     },
     {
@@ -31,8 +32,17 @@ export const experienceData: Experience[] = [
         location: "Toronto, ON",
         start_date: "May 2026",
         end_date: "Aug 2026",
-        summary: "Full-stack web development and data engineering building Merln 2.0",
-        technologies: ["Python", "Django", "PostgreSQL", "Docker", "AWS", "Angular", "TypeScript"],
+        summary:
+            "Full-stack web development and data engineering building Merln 2.0",
+        technologies: [
+            "Python",
+            "Django",
+            "PostgreSQL",
+            "Docker",
+            "AWS",
+            "Angular",
+            "TypeScript",
+        ],
     },
     {
         title: "Founding Engineer",
@@ -58,7 +68,8 @@ export const experienceData: Experience[] = [
         location: "Kingston, ON",
         start_date: "Nov 2024",
         end_date: "Mar 2025",
-        summary: "Full-stack, web performance, computer vision, and ML pipelines",
+        summary:
+            "Full-stack, web performance, computer vision, and ML pipelines",
         technologies: ["Next.js", "YOLO", "OpenCV", "Python", "TensorFlow"],
         description: [
             "Refactored the website to leverage SSR and SSG techniques, reducing client-side bundle size by 68% and improving initial page load time from 2.8s to 0.9s.",
@@ -74,7 +85,7 @@ export const experienceData: Experience[] = [
         start_date: "Dec 2024",
         end_date: "Aug 2025",
         summary:
-            "Founded a donation platform to connect charities directly with their communiy members.",
+            "Founded a donation platform to connect charities directly with their community members.",
         technologies: ["MERN", "JWT", "MongoDB", "React"],
         description: [
             "Built and deployed a full-stack MERN donation platform serving 10 charitable organizations with 90+ active users, contributing 9K+ lines of production code that facilitated $1,000+ in donations",

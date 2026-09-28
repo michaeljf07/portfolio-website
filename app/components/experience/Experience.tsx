@@ -27,7 +27,9 @@ export default function Experience() {
                         </div>
 
                         <div className="flex-1 min-w-0">
-                            <div className="font-semibold text-sm leading-snug">{exp.title}</div>
+                            <div className="font-semibold text-sm leading-snug">
+                                {exp.title}
+                            </div>
 
                             <div className="flex flex-wrap items-center gap-x-1.5 mt-0.5 text-sm text-text-muted">
                                 {exp.company_url ? (
@@ -35,38 +37,27 @@ export default function Experience() {
                                         href={exp.company_url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-0.5 font-medium text-text no-underline hover:underline"
-                                    >
+                                        className="inline-flex items-center gap-0.5 font-medium text-text no-underline hover:underline">
                                         {exp.company}
                                         <ExternalLinkIcon className="w-3 h-3 opacity-60" />
                                     </Link>
                                 ) : (
-                                    <span className="font-medium text-text">{exp.company}</span>
+                                    <span className="font-medium text-text">
+                                        {exp.company}
+                                    </span>
                                 )}
                                 <span>·</span>
                                 <span>{exp.location.split(",")[0]}</span>
                                 <span>·</span>
                                 <span className="tabular-nums">
-                                    {exp.start_date} - {exp.end_date ? exp.end_date : "Present"}
+                                    {exp.start_date} -{" "}
+                                    {exp.end_date ? exp.end_date : "Present"}
                                 </span>
                             </div>
 
                             <p className="text-sm mt-1.5 leading-relaxed text-text-muted">
                                 {exp.summary}
                             </p>
-
-                            {exp.technologies.length > 0 && (
-                                <div className="flex gap-1.5 flex-wrap mt-2">
-                                    {exp.technologies.slice(0, 5).map((tech) => (
-                                        <span
-                                            key={tech}
-                                            className="text-xs px-2 py-0.5 rounded-md bg-tag-bg border border-border"
-                                        >
-                                            {tech}
-                                        </span>
-                                    ))}
-                                </div>
-                            )}
                         </div>
                     </div>
                 ))}

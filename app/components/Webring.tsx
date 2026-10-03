@@ -15,7 +15,7 @@ export default function Webring() {
                     alt="CS Webring"
                     width={16}
                     height={16}
-                    className="opacity-40 hover:opacity-70 transition-opacity"
+                    className="opacity-40 hover:opacity-70 transition-opacity dark:invert"
                 />
             </a>
             <a

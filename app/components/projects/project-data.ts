@@ -9,21 +9,28 @@ type Project = {
 
 export const projects: Project[] = [
     {
-        title: "Vimy",
-        description: "A global macOS vim emulator for all text fields.",
-        githubUrl: "https://github.com/michaeljf07/vimy",
-        image: "/project_images/vimy.png",
-        demoUrl: "/demos/vimy_demo.mp4",
-        technologies: ["C", "CMake", "macOS", "Vim", "Emulator"],
-    },
-    {
         title: "Japanese <-> English AI Translator for macOS",
         description:
             "A desktop app for translating English <-> Japanese audio and text for macOS built with SwiftUI and Swift.",
         githubUrl: "https://github.com/michaeljf07/mimi",
         image: "/project_images/mimi.png",
         demoUrl: "/project_images/mimi.png",
-        technologies: ["SwiftUI", "Swift", "macOS", "Desktop App", "Translation", "Bash"],
+        technologies: [
+            "SwiftUI",
+            "Swift",
+            "macOS",
+            "Desktop App",
+            "Translation",
+            "Bash",
+        ],
+    },
+    {
+        title: "Vimy",
+        description: "A global macOS vim emulator for all text fields.",
+        githubUrl: "https://github.com/michaeljf07/vimy",
+        image: "/project_images/vimy.png",
+        demoUrl: "/demos/vimy_demo.mp4",
+        technologies: ["C", "CMake", "macOS", "Vim", "Emulator"],
     },
     {
         title: "Logstreamer",
@@ -41,7 +48,15 @@ export const projects: Project[] = [
         githubUrl: "https://github.com/michaeljf07/Mock-API",
         image: "/project_images/mock_api.png",
         demoUrl: "/demos/mock_api_demo.mp4",
-        technologies: ["TypeScript", "API", "Express", "Backend", "CLI", "Web Development", "npm"],
+        technologies: [
+            "TypeScript",
+            "API",
+            "Express",
+            "Backend",
+            "CLI",
+            "Web Development",
+            "npm",
+        ],
     },
     {
         title: "Sublet Centre",
@@ -82,7 +97,14 @@ export const projects: Project[] = [
         githubUrl: "https://github.com/michaeljf07/baobab-website",
         image: "/project_images/baobab.png",
         demoUrl: "/demos/baobab_demo.mp4",
-        technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Full-Stack", "MongoDB", "Charity"],
+        technologies: [
+            "Next.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "Full-Stack",
+            "MongoDB",
+            "Charity",
+        ],
     },
     {
         title: "Atari Centipede Remake",

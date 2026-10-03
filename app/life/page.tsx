@@ -1,8 +1,7 @@
+import { Fragment } from "react";
 import type { Metadata } from "next";
-import LifeGallery from "@/app/components/life/LifeGallery";
+import Image from "next/image";
 import { lifeSections } from "@/app/components/life/life-data";
-import { SectionHeading } from "@/app/components/SectionHeading";
-import Back from "@/app/components/Back";
 
 export const metadata: Metadata = {
     title: "Life",
@@ -11,28 +10,43 @@ export const metadata: Metadata = {
 
 export default function LifePage() {
     return (
-        <section id="life">
-            <Back />
-            <SectionHeading>Life</SectionHeading>
-            <p className="mt-4 mb-16 text-base leading-relaxed text-text-muted">
-                A growing collection of the things I make time for away from work.
-            </p>
-            <div className="flex flex-col gap-17">
-                {lifeSections.map((section, index) => (
-                    <section key={section.id} id={section.id} className="grid gap-6">
-                        <div className="grid grid-cols-[40px_120px_minmax(0,1fr)] items-baseline gap-3 max-sm:grid-cols-[36px_1fr]">
-                            <p className="text-[0.72rem] tracking-[0.08em] text-text-muted">
-                                {String(index + 1).padStart(2, "0")}
-                            </p>
-                            <h2 className="text-2xl font-semibold">{section.title}</h2>
-                            <p className="text-sm leading-[1.65] text-text-muted max-sm:col-start-2">
+        <div className="grid h-full grid-cols-3 gap-2.5 md:grid-cols-4 md:grid-rows-[repeat(2,minmax(0,1fr))] md:gap-[clamp(10px,1vw,16px)]">
+            {lifeSections.map((section, index) => (
+                <Fragment key={section.id}>
+                    <section
+                        aria-labelledby={`life-${section.id}`}
+                        className="col-span-3 flex flex-col justify-between gap-3 py-2 md:col-span-1 md:pr-4 ">
+                        <div className="flex flex-col mt-auto">
+                            <h2
+                                id={`life-${section.id}`}
+                                className="font-serif text-xl md:text-2xl font-semibold">
+                                {section.title}
+                            </h2>
+                            <p className="mt-2 text-sm leading-relaxed text-text-muted">
                                 {section.description}
                             </p>
                         </div>
-                        <LifeGallery title={section.title} images={section.images} />
                     </section>
-                ))}
-            </div>
-        </section>
+                    {section.images.map((image) => (
+                        <figure
+                            key={image.src}
+                            className="relative aspect-4/5 min-h-0 overflow-hidden rounded-sm border border-border bg-tag-bg md:aspect-auto">
+                            <Image
+                                src={image.src}
+                                alt={image.alt}
+                                fill
+                                sizes="(min-width: 768px) 25vw, 33vw"
+                                className="object-cover"
+                            />
+                            {image.caption && (
+                                <figcaption className="absolute inset-x-2 bottom-2 rounded-md bg-black/70 px-2 py-1.5 text-[0.7rem] text-white backdrop-blur-lg max-md:hidden">
+                                    {image.caption}
+                                </figcaption>
+                            )}
+                        </figure>
+                    ))}
+                </Fragment>
+            ))}
+        </div>
     );
 }

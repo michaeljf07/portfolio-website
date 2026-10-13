@@ -51,14 +51,6 @@ export default function RootLayout({
                         <SiteBar />
                     </header>
                     <main className="content">{children}</main>
-                    <footer className="text-xs text-text-muted">
-                        made with ❤︎⁠. inspired by{" "}
-                        <Link
-                            href="https://josephliao.ca"
-                            className="text-xs text-text-muted">
-                            joseph liao
-                        </Link>
-                    </footer>
                 </div>
                 <Analytics />
             </body>

@@ -2,15 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { education } from "@/app/components/about/education-data";
 import { experienceData } from "@/app/components/experience/experience-data";
+import ExperienceRow from "@/app/components/experience/Experience";
 
-const labelClass = "text-md text-text-muted mb-2";
+const labelClass = "text-md text-text-muted mb-1";
+const VISIBLE_EXPERIENCES = 5;
 
 export default function Home() {
-    const experience = [...experienceData].sort((a, b) => {
-        const endA = a.end_date ? new Date(a.end_date) : new Date();
-        const endB = b.end_date ? new Date(b.end_date) : new Date();
-        return endB.getTime() - endA.getTime();
-    });
+    const shownExperience = experienceData.slice(0, VISIBLE_EXPERIENCES);
+    const hiddenExperience = experienceData.slice(VISIBLE_EXPERIENCES);
 
     return (
         <div className="grid h-full content-start gap-12 md:grid-cols-[minmax(0,1.7fr)_minmax(280px,1fr)] md:gap-[clamp(32px,5vw,88px)]">
@@ -38,13 +37,7 @@ export default function Home() {
                                 I study computer science at the{" "}
                                 <b>University of Waterloo</b> alongside a
                                 business degree at{" "}
-                                <b>Wilfrid Laurier University</b>. I&apos;m the
-                                founding engineer at{" "}
-                                <Link href="https://cacheinyourcloset.com">
-                                    Cache
-                                </Link>
-                                , a fashion resale marketplace connecting
-                                influencers directly with their followers.
+                                <b>Wilfrid Laurier University</b>.
                             </p>
                             <p>
                                 When I&apos;m not in the terminal, you&apos;ll
@@ -81,12 +74,6 @@ export default function Home() {
                             Toronto / Waterloo
                         </dd>
                     </div>
-                    <div>
-                        <dt className={labelClass}>languages</dt>
-                        <dd className="text-sm text-text/90">
-                            TypeScript, Python, Swift, Go, C, C++, Java
-                        </dd>
-                    </div>
                 </div>
             </section>
 
@@ -94,49 +81,35 @@ export default function Home() {
                 <h2 id="experience-title" className={labelClass}>
                     experience
                 </h2>
-                <ol className="grid gap-3.5">
-                    {experience.map((exp) => (
-                        <li
+                <ol className="grid gap-2">
+                    {shownExperience.map((exp) => (
+                        <ExperienceRow
                             key={`${exp.company}-${exp.title}`}
-                            className="grid grid-cols-[36px_minmax(0,1fr)] items-center gap-6">
-                            <div className="size-12 overflow-hidden rounded-md border border-border bg-white">
-                                <Image
-                                    src={exp.company_logo}
-                                    alt=""
-                                    width={48}
-                                    height={48}
-                                    className="size-full object-cover"
-                                />
-                            </div>
-                            <div className="min-w-0 leading-tight">
-                                <p className="truncate text-sm">
-                                    {exp.company_url ? (
-                                        <Link
-                                            href={exp.company_url}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="font-medium text-text">
-                                            {exp.company}
-                                        </Link>
-                                    ) : (
-                                        <span className="font-medium">
-                                            {exp.company}
-                                        </span>
-                                    )}
-                                    <span className="text-text-muted">
-                                        {" "}
-                                        · {exp.title}
-                                    </span>
-                                </p>
-                                <p className="mt-1 text-xs text-text-muted tabular-nums">
-                                    {exp.start_date} –{" "}
-                                    {exp.end_date ?? "Present"} ·{" "}
-                                    {exp.location.split(",")[0]}
-                                </p>
-                            </div>
-                        </li>
+                            exp={exp}
+                        />
                     ))}
                 </ol>
+
+                {hiddenExperience.length > 0 && (
+                    <details className="group mt-2">
+                        <summary className="w-fit cursor-pointer list-none text-xs text-text-muted hover:text-text [&::-webkit-details-marker]:hidden">
+                            <span className="group-open:hidden">
+                                + {hiddenExperience.length} more
+                            </span>
+                            <span className="hidden group-open:inline">
+                                show less
+                            </span>
+                        </summary>
+                        <ol className="mt-2 grid gap-2">
+                            {hiddenExperience.map((exp) => (
+                                <ExperienceRow
+                                    key={`${exp.company}-${exp.title}`}
+                                    exp={exp}
+                                />
+                            ))}
+                        </ol>
+                    </details>
+                )}
             </section>
         </div>
     );

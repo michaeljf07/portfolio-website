@@ -1,28 +1,37 @@
-type Experience = {
-    title: string;
-    company: string;
-    company_url?: string;
-    company_logo: string;
-    location: string;
-    start_date: string;
-    end_date: string | null;
-    summary: string;
-    technologies: string[];
-    description?: string[];
-};
+import { type Experience } from "./Experience";
 
 export const experienceData: Experience[] = [
     {
-        title: "Frontend Developer",
-        company: "ZEVA Global",
-        company_url: "https://zevaglobal.com/",
-        company_logo: "/company_logos/zeva.jpg",
+        title: "AI Engineer Intern",
+        company: "AlphaSense",
+        company_url: "https://www.alpha-sense.com/",
+        company_logo: "/company_logos/alphasense.png",
+        location: "New York, NY",
+        dates: {
+            incoming: true,
+            start_date: "Jan 2027",
+            end_date: "April 2027",
+        },
+        summary: "Generative AI and market intelligence",
+    },
+    {
+        title: "Founding Engineer",
+        company: "Cache",
+        company_url: "https://cacheinyourcloset.com",
+        company_logo: "/company_logos/cache.jpg",
         location: "Toronto, ON",
-        start_date: "May 2026",
-        end_date: "Aug 2026",
-        summary:
-            "Web development, helping build effective solutions for EV owners and operators.",
-        technologies: ["Svelte", "TypeScript", "Python", "AWS", "UI/UX Design"],
+        dates: {
+            incoming: false,
+            start_date: "Feb 2026",
+            end_date: null,
+        },
+        summary: "Payments, authentication, and full-stack across web and iOS",
+        technologies: ["React", "Swift", "Stripe", "PostgreSQL", "Supabase"],
+        description: [
+            "Led end-to-end deployment of Stripe payment processing, authentication, and user management across a React web app and iOS Swift app, supporting 100+ users and 1,500+ transactions",
+            "Designed and optimized a PostgreSQL database on Supabase powering 50+ API endpoints, achieving sub-100ms response times through caching, denormalization, and memoization",
+            "Delivered 10,000+ lines of production code across the full stack and mobile app, driving $5,000+ in revenue and enabling 5x user growth through feature development and performance improvements",
+        ],
     },
     {
         title: "Full Stack Developer",
@@ -30,8 +39,11 @@ export const experienceData: Experience[] = [
         company_url: "https://temerityanalytics.com/",
         company_logo: "/company_logos/temerityanalytics.png",
         location: "Toronto, ON",
-        start_date: "May 2026",
-        end_date: "Aug 2026",
+        dates: {
+            incoming: false,
+            start_date: "May 2026",
+            end_date: "Aug 2026",
+        },
         summary:
             "Full-stack web development and data engineering building Merln 2.0",
         technologies: [
@@ -45,20 +57,19 @@ export const experienceData: Experience[] = [
         ],
     },
     {
-        title: "Founding Engineer",
-        company: "Cache",
-        company_url: "https://cacheinyourcloset.com",
-        company_logo: "/company_logos/cache.jpg",
-        location: "Remote, Toronto, ON",
-        start_date: "Feb 2026",
-        end_date: null,
-        summary: "Payments, authentication, and full-stack across web and iOS",
-        technologies: ["React", "Swift", "Stripe", "PostgreSQL", "Supabase"],
-        description: [
-            "Led end-to-end deployment of Stripe payment processing, authentication, and user management across a React web app and iOS Swift app, supporting 100+ users and 1,500+ transactions",
-            "Designed and optimized a PostgreSQL database on Supabase powering 50+ API endpoints, achieving sub-100ms response times through caching, denormalization, and memoization",
-            "Delivered 10,000+ lines of production code across the full stack and mobile app, driving $5,000+ in revenue and enabling 5x user growth through feature development and performance improvements",
-        ],
+        title: "Frontend Developer",
+        company: "ZEVA Global",
+        company_url: "https://zevaglobal.com/",
+        company_logo: "/company_logos/zeva.jpg",
+        location: "Toronto, ON",
+        dates: {
+            incoming: false,
+            start_date: "May 2026",
+            end_date: "Aug 2026",
+        },
+        summary:
+            "Web development, helping build effective solutions for EV owners and operators.",
+        technologies: ["Svelte", "TypeScript", "Python", "AWS", "UI/UX Design"],
     },
     {
         title: "Software Engineering Intern",
@@ -66,8 +77,11 @@ export const experienceData: Experience[] = [
         company_url: "https://thelocalreach.ca",
         company_logo: "/company_logos/localreach.jpg",
         location: "Kingston, ON",
-        start_date: "Nov 2024",
-        end_date: "Mar 2025",
+        dates: {
+            incoming: false,
+            start_date: "Nov 2024",
+            end_date: "Mar 2025",
+        },
         summary:
             "Full-stack, web performance, computer vision, and ML pipelines",
         technologies: ["Next.js", "YOLO", "OpenCV", "Python", "TensorFlow"],
@@ -82,8 +96,11 @@ export const experienceData: Experience[] = [
         company: "Baobab",
         company_logo: "/company_logos/baobab.jpg",
         location: "Toronto, ON",
-        start_date: "Dec 2024",
-        end_date: "Aug 2025",
+        dates: {
+            incoming: false,
+            start_date: "Dec 2024",
+            end_date: "Aug 2025",
+        },
         summary:
             "Founded a donation platform to connect charities directly with their community members.",
         technologies: ["MERN", "JWT", "MongoDB", "React"],

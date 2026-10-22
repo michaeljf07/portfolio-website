@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FileIcon, GitHubIcon, LinkedInIcon } from "@/app/icons/Icons";
+import { FileIcon, GitHubIcon, LinkedInIcon, XIcon } from "@/app/icons/Icons";
 import Webring from "@/app/components/Webring";
 import ThemeToggle from "@/app/components/ThemeToggle";
 
@@ -11,6 +11,9 @@ const tabs = [
     { label: "work", href: "/work" },
     { label: "life", href: "/life" },
 ];
+
+const SOCIAL_LINK_CLASSNAME =
+    "w-5 h-5 text-text-muted hover:text-text transition-colors";
 
 export default function SiteBar() {
     const pathname = usePathname();
@@ -29,10 +32,19 @@ export default function SiteBar() {
                     href="https://linkedin.com/in/michael-j-ferreira"
                     target="_blank"
                     aria-label="LinkedIn">
-                    <LinkedInIcon className="w-5 h-5 text-text-muted hover:text-text transition-colors" />
+                    <LinkedInIcon className={SOCIAL_LINK_CLASSNAME} />
                 </Link>
-                <Link href="https://github.com/michaeljf07" target="_blank" aria-label="GitHub">
-                    <GitHubIcon className="w-5 h-5 text-text-muted hover:text-text transition-colors" />
+                <Link
+                    href="https://github.com/michaeljf07"
+                    target="_blank"
+                    aria-label="GitHub">
+                    <GitHubIcon className={SOCIAL_LINK_CLASSNAME} />
+                </Link>
+                <Link
+                    href="https://x.com/michaeljfer"
+                    target="_blank"
+                    aria-label="X">
+                    <XIcon className={SOCIAL_LINK_CLASSNAME} />
                 </Link>
                 <Webring />
             </div>
@@ -47,7 +59,9 @@ export default function SiteBar() {
                                 href={href}
                                 aria-current={active ? "page" : undefined}
                                 className={`text-base md:text-lg no-underline hover:no-underline transition-colors ${
-                                    active ? "text-text" : "text-text-muted hover:text-text"
+                                    active
+                                        ? "text-text"
+                                        : "text-text-muted hover:text-text"
                                 }`}>
                                 {label}
                             </Link>

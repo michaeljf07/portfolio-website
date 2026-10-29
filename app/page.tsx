@@ -1,8 +1,8 @@
 import Image from "next/image";
-import Link from "next/link";
 import { education } from "@/app/components/about/education-data";
 import { experienceData } from "@/app/components/experience/experience-data";
 import ExperienceRow from "@/app/components/experience/Experience";
+import LastPlayed from "@/app/components/LastPlayed";
 
 const labelClass = "text-md text-text-muted mb-1";
 const VISIBLE_EXPERIENCES = 5;
@@ -16,15 +16,18 @@ export default function Home() {
             <section
                 aria-labelledby="about-title"
                 className="grid items-start gap-6 sm:grid-cols-[clamp(140px,15vw,240px)_minmax(0,1fr)]">
-                <div className="relative aspect-4/5 w-full max-w-[260px] overflow-hidden rounded-sm border border-border mx-auto sm:mx-0">
-                    <Image
-                        src="/headshots/headshot4.png"
-                        alt="Michael Ferreira"
-                        fill
-                        priority
-                        sizes="(min-width: 640px) 240px, 260px"
-                        className="object-cover"
-                    />
+                <div className="grid w-full max-w-[260px] gap-3 mx-auto sm:mx-0">
+                    <div className="relative aspect-4/5 w-full overflow-hidden rounded-sm border border-border">
+                        <Image
+                            src="/headshots/headshot4.png"
+                            alt="Michael Ferreira"
+                            fill
+                            priority
+                            sizes="(min-width: 640px) 240px, 260px"
+                            className="object-cover"
+                        />
+                    </div>
+                    <LastPlayed />
                 </div>
 
                 <div className="grid gap-y-4 min-w-0 max-w-[62ch]">

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { education } from "@/app/components/about/education-data";
 import { experienceData } from "@/app/components/experience/experience-data";
 import ExperienceRow from "@/app/components/experience/Experience";
@@ -40,14 +41,29 @@ export default function Home() {
                                 I study computer science at the{" "}
                                 <b>University of Waterloo</b> alongside a
                                 business degree at{" "}
-                                <b>Wilfrid Laurier University</b>.
+                                <b>Wilfrid Laurier University</b>. I&apos;m
+                                working on{" "}
+                                <Link
+                                    href="https://reviewmytherapy.com"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="font-bold underline underline-offset-4">
+                                    Review My Therapy
+                                </Link>, and in January I&apos;m joining{" "}
+                                <Link
+                                    href="https://www.alpha-sense.com/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="font-bold underline underline-offset-4">
+                                    AlphaSense
+                                </Link>{" "}
+                                in New York.
                             </p>
                             <p>
                                 When I&apos;m not in the terminal, you&apos;ll
-                                probably find me at the gym, reading a book, or
-                                working on a side project. I&apos;m always
-                                looking for interesting problems to fix and
-                                people to collaborate with.
+                                find me at the gym or reading a book. I&apos;m
+                                always looking for interesting problems to fix
+                                and people to collaborate with.
                             </p>
                         </div>
                     </div>

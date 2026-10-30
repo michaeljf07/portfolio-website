@@ -1,13 +1,28 @@
 type Project = {
     title: string;
     description: string;
-    githubUrl: string;
+    githubUrl?: string;
+    siteUrl?: string;
     image: string;
     demoUrl: string;
     technologies: string[];
 };
 
 export const projects: Project[] = [
+    {
+        title: "Review My Therapy",
+        description: "A website for anonymous reviews of therapists.",
+        siteUrl: "https://reviewmytherapy.com",
+        image: "/project_images/review-my-therapy.png",
+        demoUrl: "/project_images/review-my-therapy.png",
+        technologies: [
+            "Next.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "PostgreSQL",
+            "Full-Stack",
+        ],
+    },
     {
         title: "Japanese <-> English AI Translator for macOS",
         description:

@@ -81,14 +81,27 @@ function ProjectCopy({ project }: { project: Project }) {
                     </li>
                 ))}
             </ul>
-            <Link
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-5 inline-flex items-center gap-1.5 text-sm">
-                <GitHubIcon className="w-4 h-4" />
-                View on GitHub
-            </Link>
+            <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2">
+                {project.siteUrl && (
+                    <Link
+                        href={project.siteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-sm">
+                        Visit site
+                    </Link>
+                )}
+                {project.githubUrl && (
+                    <Link
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-sm">
+                        <GitHubIcon className="w-4 h-4" />
+                        View on GitHub
+                    </Link>
+                )}
+            </div>
         </>
     );
 }

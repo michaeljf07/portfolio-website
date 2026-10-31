@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { education } from "@/app/components/about/education-data";
@@ -28,7 +29,9 @@ export default function Home() {
                             className="object-cover"
                         />
                     </div>
-                    <LastPlayed />
+                    <Suspense>
+                        <LastPlayed />
+                    </Suspense>
                 </div>
 
                 <div className="grid gap-y-4 min-w-0 max-w-[62ch]">
@@ -49,7 +52,9 @@ export default function Home() {
                                     rel="noopener noreferrer"
                                     className="font-bold underline underline-offset-4">
                                     Review My Therapy
-                                </Link>, and in January I&apos;m joining{" "}
+                                </Link>
+                                .
+                                {/* , and in January I&apos;m joining{" "}
                                 <Link
                                     href="https://www.alpha-sense.com/"
                                     target="_blank"
@@ -57,7 +62,7 @@ export default function Home() {
                                     className="font-bold underline underline-offset-4">
                                     AlphaSense
                                 </Link>{" "}
-                                in New York.
+                                in New York. */}
                             </p>
                             <p>
                                 When I&apos;m not in the terminal, you&apos;ll

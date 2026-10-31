@@ -1,19 +1,19 @@
 import { type Experience } from "./Experience";
 
 export const experienceData: Experience[] = [
-    {
-        title: "AI Engineer Intern",
-        company: "AlphaSense",
-        company_url: "https://www.alpha-sense.com/",
-        company_logo: "/company_logos/alphasense.png",
-        location: "New York, NY",
-        dates: {
-            incoming: true,
-            start_date: "Jan 2027",
-            end_date: "April 2027",
-        },
-        summary: "Generative AI and market intelligence",
-    },
+    // {
+    //     title: "AI Engineer Intern",
+    //     company: "AlphaSense",
+    //     company_url: "https://www.alpha-sense.com/",
+    //     company_logo: "/company_logos/alphasense.png",
+    //     location: "New York, NY",
+    //     dates: {
+    //         incoming: true,
+    //         start_date: "Jan 2027",
+    //         end_date: "April 2027",
+    //     },
+    //     summary: "Generative AI and market intelligence",
+    // },
     {
         title: "Founding Engineer",
         company: "Cache",
@@ -23,7 +23,7 @@ export const experienceData: Experience[] = [
         dates: {
             incoming: false,
             start_date: "Feb 2026",
-            end_date: null,
+            end_date: "Oct 2026",
         },
         summary: "Payments, authentication, and full-stack across web and iOS",
         technologies: ["React", "Swift", "Stripe", "PostgreSQL", "Supabase"],

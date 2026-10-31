@@ -1,23 +1,24 @@
 import Image from "next/image";
+import { connection } from "next/server";
 import { SpotifyIcon } from "@/app/icons/Icons";
 import { getLastPlayedTrack } from "@/lib/spotify";
 
 export default async function LastPlayed() {
-    const track = await getLastPlayedTrack();
-    if (!track) {
-        return null;
-    }
+    // Render per request instead of at build time so the track stays current.
+    await connection();
+    const lastPlayed = await getLastPlayedTrack();
+    if (!lastPlayed) return null;
 
     return (
         <a
-            href={track.url}
+            href={lastPlayed.url}
             target="_blank"
             rel="noopener noreferrer"
             className="hidden sm:grid w-fit max-w-72 grid-cols-[48px_minmax(0,1fr)] items-center gap-3 no-underline hover:no-underline">
             <div className="relative size-12 overflow-hidden rounded-md border border-border bg-tag-bg">
-                {track.albumArt && (
+                {lastPlayed.albumArt && (
                     <Image
-                        src={track.albumArt}
+                        src={lastPlayed.albumArt}
                         alt=""
                         fill
                         sizes="48px"
@@ -31,10 +32,10 @@ export default async function LastPlayed() {
                     last played
                 </p>
                 <p className="mt-0.5 truncate text-sm font-medium text-text">
-                    {track.title}
+                    {lastPlayed.title}
                 </p>
                 <p className="truncate text-xs text-text-muted">
-                    {track.artist}
+                    {lastPlayed.artist}
                 </p>
             </div>
         </a>
